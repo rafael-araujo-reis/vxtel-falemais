@@ -1,0 +1,15 @@
+.containerSignButton {
+  padding: 0.8rem 1.6rem;
+
+  border       : none;
+  border-radius: 5rem;
+
+  background-color: var(--green-200);
+  color           : var(--white-100);
+
+  transition: 0.3s all;
+
+  &:hover {
+    filter: brightness(0.8)
+  }
+}
