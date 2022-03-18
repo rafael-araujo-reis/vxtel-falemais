@@ -14,8 +14,10 @@ interface HeaderProps {
 export default function Header({ itemsMenu }: HeaderProps) {
   return (
     <header className={styles.containerHeader}>
-      <nav className={styles.contentMenu}>
-        <img className={styles.logoImage} src="./images/logo.svg" alt="Logo da VxTel" />
+      <nav className={styles.contenteMenu}>
+        <a href="#home">
+          <img className={styles.logoImage} src="./images/logo.svg" alt="Logo da VxTel" />
+        </a>
         <ul>
           {
             itemsMenu.map(item => {
@@ -32,7 +34,7 @@ export default function Header({ itemsMenu }: HeaderProps) {
         </ul>
       </nav>
 
-      <div className={styles.contentSign}>
+      <div className={styles.contenteSign}>
         <SignButton title={'Acessar conta'} />
       </div>
 
