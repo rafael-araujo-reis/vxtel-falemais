@@ -18,7 +18,8 @@
  * Reduzindo o tamanho da fonte padrão para desktop de 16px para 10px
  *******************/
 html {
-  font-size: 62.5%;
+  font-size      : 62.5%;
+  scroll-behavior: smooth;
 }
 
 /********************
