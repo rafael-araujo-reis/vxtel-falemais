@@ -1,0 +1,56 @@
+.containerHome {
+
+  display       : flex;
+  flex-direction: column;
+  position      : relative;
+
+  background-image     : url('../../public/images/background.svg');
+  background-repeat    : no-repeat;
+  background-size      : cover;
+  background-position  : center 20rem;
+  background-attachment: fixed;
+
+  min-height : 100vh;
+  padding-top: 5rem;
+
+  .containerInfo {
+    margin   : 10rem;
+    font-size: 4.6rem;
+    color    : var(--green-500);
+
+    ul {
+      list-style: none;
+      font-size : 3rem;
+
+      margin-top: 2rem;
+    }
+  }
+
+  Button {
+    position: absolute;
+    bottom  : 5rem;
+    left    : 0;
+    right   : 0;
+
+    display: block;
+    margin : 0 auto;
+
+    max-width: 30rem;
+  }
+
+
+  .logoFale {
+    font-family   : 'Audiowide', cursive;
+    text-transform: uppercase;
+    color         : var(--green-200);
+  }
+
+}
+
+
+.containerSimulateHiring {
+  padding-top: 8rem;
+  border     : 10px solid red;
+
+  min-height: 100vh;
+}
