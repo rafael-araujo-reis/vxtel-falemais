@@ -1,0 +1,19 @@
+.colorButtonYellow,
+.colorButtonGreen {
+
+  border : none;
+  padding: 0.8rem 1.6rem;
+
+  border-radius: 5rem;
+}
+
+.colorButtonYellow {
+  background-color: var(--yellow-100);
+  color           : var(--green-500);
+}
+
+.colorButtonGreen {
+
+  background-color: var(--green-200);
+  color           : var(--white-100);
+}
