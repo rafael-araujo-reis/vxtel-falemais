@@ -8,6 +8,6 @@ export const itemsMenu = [
   {
     id: 2,
     title: 'Planos',
-    url: '#planos'
+    url: '#plains'
   }
 ];
