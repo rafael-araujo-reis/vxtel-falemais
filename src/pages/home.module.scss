@@ -156,7 +156,7 @@
           height       : 0.25rem;
           cursor       : pointer;
           animate      : 0.2s;
-          background   : var(--green-200);
+          background   : var(--green-500);
           border-radius: 2.5rem;
 
           &::after {
@@ -183,36 +183,34 @@
           position: absolute;
           top     : -50%;
 
-          span {
-            padding      : 1rem;
-            text-align   : center;
-            background   : var(--green-200);
-            color        : #fff;
-            font-size    : 1.6rem;
-            display      : block;
-            position     : absolute;
-            left         : 50%;
-            transform    : translate(-50%, -50%);
-            border-radius: 0.6rem;
+          padding      : 1rem;
+          text-align   : center;
+          background   : var(--green-200);
+          color        : var(--white-100);
+          font-size    : 1.6rem;
+          display      : block;
+          position     : absolute;
+          left         : 50%;
+          transform    : translate(-50%, -50%);
+          border-radius: 0.6rem;
 
-            &::after {
-              content  : 'min';
-              font-size: 1.2rem;
-            }
+          &::after {
+            content  : 'min';
+            font-size: 1.2rem;
+          }
 
-            &::before {
-              content     : "";
-              position    : absolute;
-              width       : 0;
-              height      : 0;
-              border-top  : 1rem solid var(--green-200);
-              border-left : 0.5rem solid transparent;
-              border-right: 0.5rem solid transparent;
-              top         : 100%;
-              left        : 50%;
-              margin-left : -0.5rem;
-              margin-top  : -0.1rem;
-            }
+          &::before {
+            content     : "";
+            position    : absolute;
+            width       : 0;
+            height      : 0;
+            border-top  : 1rem solid var(--green-200);
+            border-left : 0.5rem solid transparent;
+            border-right: 0.5rem solid transparent;
+            top         : 100%;
+            left        : 50%;
+            margin-left : -0.5rem;
+            margin-top  : -0.1rem;
           }
         }
       }
