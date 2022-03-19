@@ -1,9 +1,19 @@
 import Head from 'next/head';
 import Button from '../components/Button';
 import ButtonLink from '../components/ButtonLink';
+import { usePlans } from '../hooks/usePlans';
 import styles from './home.module.scss';
 
 export default function Home() {
+
+  const { plans, handleSearchDDD } = usePlans();
+  let valueSearch = 0;
+
+  function handleInputSearchDDD(event) {
+    valueSearch = event.target.value;
+    handleSearchDDD(valueSearch);
+  }
+
   return (
     <>
       <Head>
@@ -35,36 +45,21 @@ export default function Home() {
               <div className={styles.originDestinationContainer}>
                 <p>Escolha a origem e destino da ligação:</p>
                 <div className={styles.originDestinationContente}>
-                  <input type="number" placeholder={'DDD de onde deseja ligar'} />
-                  <input type="number" placeholder={'DDD para onde deseja ligar'} />
+                  <input
+                    type="number"
+                    placeholder={'DDD de onde deseja ligar'}
+                    onBlur={handleInputSearchDDD}
+                    maxLength={2}
+                  />
+                  <input
+                    type="number"
+                    placeholder={'DDD para onde deseja ligar'}
+                    onBlur={handleInputSearchDDD}
+                    maxLength={2}
+                  />
                 </div>
               </div>
             </section>
-
-            {/* <section className={styles.containerPlains}>
-              <p>Selecione quantos minutos deseja falar por mês:</p>
-              <div className={styles.plains}>
-                <div>
-                  <h2>Fale+</h2>
-                  <p>30 <span>min/mês</span></p>
-                </div>
-
-                <div>
-                  <h2>Fale+</h2>
-                  <p>30 <span>min/mês</span></p>
-                </div>
-
-                <div>
-                  <h2>Fale+</h2>
-                  <p>30 <span>min/mês</span></p>
-                </div>
-
-                <div>
-                  <h2>Fale+</h2>
-                  <p>30 <span>min/mês</span></p>
-                </div>
-              </div>
-            </section> */}
 
             <section className={styles.availablePlans}>
 
