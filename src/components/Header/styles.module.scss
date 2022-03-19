@@ -23,8 +23,7 @@
     align-items    : center;
 
     .logoImage {
-      border: 1px solid #000;
-      width : 8rem;
+      width: 8rem;
     }
 
     .itemMenu {
@@ -34,9 +33,5 @@
       color     : var(--white-100);
       margin    : 1rem 2rem;
     }
-  }
-
-  .contenteSign {
-    border: 1px solid #000;
   }
 }

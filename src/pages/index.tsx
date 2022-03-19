@@ -10,9 +10,25 @@ export default function Home() {
   let valueSearch = 0;
 
   function handleInputSearchDDD(event) {
+    console.log('event: ', event);
     valueSearch = event.target.value;
     handleSearchDDD(valueSearch);
   }
+
+  const
+    range = document.getElementById('range'),
+    rangeV = document.getElementById('rangeV'),
+
+    setValue = () => {
+      console.log(range);
+      const
+        newValue = Number((range.value - range.min) * 100 / (range.max - range.min)),
+        newPosition = 10 - (newValue * 0.2);
+      rangeV.innerHTML = `<span>${range.value}</span>`;
+      rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
+    };
+  document.addEventListener("DOMContentLoaded", setValue);
+  range.addEventListener('input', setValue);
 
   return (
     <>
@@ -62,30 +78,37 @@ export default function Home() {
             </section>
 
             <section className={styles.availablePlans}>
+              <p className={styles.titleAvailablePlans}>Selecione seu plano atual:</p>
+              <div className={styles.plans}>
+                <input type="radio" name="plans" id="30" />
+                <label htmlFor="30" className={styles.logoFale}>
+                  Fale+
+                  <p>30<span>min/mês</span></p>
+                </label>
 
-              <input type="radio" name="plans" id="30" />
-              <label htmlFor="30" className={styles.logoFale}>
-                Fale+
-                <p>30<span>min/mês</span></p>
-              </label>
+                <input type="radio" name="plans" id="60" />
+                <label htmlFor="60" className={styles.logoFale}>
+                  Fale+
+                  <p>60<span>min/mês</span></p>
+                </label>
 
-              <input type="radio" name="plans" id="80" />
-              <label htmlFor="80" className={styles.logoFale}>
-                Fale+
-                <p>80<span>min/mês</span></p>
-              </label>
+                <input type="radio" name="plans" id="120" />
+                <label htmlFor="120" className={styles.logoFale}>
+                  Fale+
+                  <p>120<span>min/mês</span></p>
+                </label>
+              </div>
+            </section>
 
-              <input type="radio" name="plans" id="100" />
-              <label htmlFor="100" className={styles.logoFale}>
-                Fale+
-                <p>100<span>min/mês</span></p>
-              </label>
+            <section className={styles.rangeMinutesSection}>
+              <p className={styles.titleRangeMinutes}>Selecione quantos minutos pretende falar:</p>
+              {/* <div className={styles.plans}> */}
 
-              <input type="radio" name="plans" id="200" />
-              <label htmlFor="200" className={styles.logoFale}>
-                Fale+
-                <p>200<span>min/mês</span></p>
-              </label>
+              <div className={styles.rangeWrap}>
+                <div className={styles.rangeValue} id={'rangeV'}></div>
+                <input id="range" type="range" min="0" max="500" value="0" step="10" />
+              </div>
+
             </section>
 
             <section className={styles.resultSimulate}>
