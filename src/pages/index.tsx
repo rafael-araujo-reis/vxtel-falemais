@@ -6,6 +6,8 @@ import styles from './home.module.scss';
 
 import { plans } from '../pages/api/plans';
 
+import { formatPrice } from '../utils/format';
+
 export default function Home() {
 
   const {
@@ -143,9 +145,7 @@ export default function Home() {
                 <h2 className={styles.logoFale}>Fale+</h2>
 
                 <p>Seu plano terá um acréscimo de</p>
-                <p>
-                  <span>R$</span>{withPlan}
-                </p>
+                <p> {formatPrice(withPlan)} </p>
 
                 <Button titleButton={'Contratar agora'} colorButton={'yellow'} />
               </div>
@@ -155,9 +155,7 @@ export default function Home() {
                 <h2 className={styles.logoFale}>Fale+</h2>
 
                 <p>Seu gasto aumentará em</p>
-                <p>
-                  <span>R$</span>{withoutPlan}
-                </p>
+                <p> {formatPrice(withoutPlan)} </p>
               </div>
             </section>
           </div>
