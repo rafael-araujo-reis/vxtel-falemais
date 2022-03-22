@@ -136,8 +136,9 @@
       }
 
       .rangeWrap {
-        width   : 50rem;
-        position: relative;
+        max-width: 50rem;
+        width    : 100%;
+        position : relative;
 
         margin-top: 5rem;
 
@@ -225,6 +226,8 @@
       margin               : 0 auto;
       margin-top           : 3rem;
 
+      padding: 1rem;
+
       div {
         padding      : 2rem;
         width        : 100%;
@@ -283,4 +286,33 @@
   font-family   : 'Audiowide', cursive;
   text-transform: uppercase;
   color         : var(--green-200);
+}
+
+@media (max-width: 720px) {
+
+  .originDestinationContente {
+    grid-template-columns: 1fr !important;
+  }
+
+  .resultSimulate {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 450px) {
+
+  .plans {
+    display: block !important;
+
+    label {
+      width  : 100% !important;
+      display: inline-block !important;
+    }
+  }
+
+  .containerSection {
+    Button {
+      position: relative !important;
+    }
+  }
 }
