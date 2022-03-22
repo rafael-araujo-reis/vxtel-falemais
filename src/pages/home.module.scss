@@ -25,7 +25,7 @@
 
   .containerHome,
   .containerSimulateHiring,
-  .containerPlains {
+  .containerPlans {
     background-repeat    : no-repeat;
     background-size      : cover;
     background-position  : center 20rem;
@@ -38,7 +38,7 @@
   }
 
   .containerSimulateHiring,
-  .containerPlains {
+  .containerPlans {
     background-image: url('../../public/images/background-ligth.svg');
   }
 
@@ -156,7 +156,7 @@
           height       : 0.25rem;
           cursor       : pointer;
           animate      : 0.2s;
-          background   : var(--green-500);
+          background   : var(--green-200);
           border-radius: 2.5rem;
 
           &::after {

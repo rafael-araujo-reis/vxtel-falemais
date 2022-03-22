@@ -1,3 +1,4 @@
+export const DIGITS_DDD = 2;
 
 export const itemsMenu = [
   {
@@ -5,9 +6,9 @@ export const itemsMenu = [
     title: 'Simular contratação',
     url: '#simulateHiring'
   },
-  {
-    id: 2,
-    title: 'Planos',
-    url: '#plains'
-  }
+  // {
+  //   id: 2,
+  //   title: 'Planos',
+  //   url: '#plans'
+  // }
 ];
