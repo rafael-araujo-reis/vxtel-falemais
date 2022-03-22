@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { DIGITS_DDD } from "../models/constantes";
+import { DIGITS_DDD } from "../utils/constantes";
 import { api } from "../services/api";
 import apiSearchDDD from "../services/search-ddd";
 
@@ -84,7 +84,8 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
 
       await api.get(`/callprice/originDDD/${originDDD}/destinationDDD/${destinationDDD}`)
         .then((res) => {
-          const result = res.data.priceMinute;
+          const data = res.data.data?.price_minute;
+          const result = data !== undefined ? data / 100 : 0;
           setPriceMinute(result);
         });
 
@@ -97,16 +98,13 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
 
   function calculatePriceWithPlan(callPriceByMinutes: number, plan: number, minutes: number) {
 
-
     const surplus = minutes - plan;
     const addPrice = surplus <= 0 ? 0 : callPriceByMinutes * surplus * 1.1;
 
-    console.log('valor com plano: ', addPrice);
     return addPrice;
   }
 
   function calculatePriceWithoutPlan(callPriceByMinutes: number, minutes: number) {
-    console.log('valor sem plano: ', callPriceByMinutes * minutes);
     return callPriceByMinutes * minutes;
   }
 
