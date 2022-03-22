@@ -1,8 +1,8 @@
 import { AxiosError } from "axios";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { DIGITS_DDD } from "../utils/constantes";
 import { api } from "../services/api";
 import apiSearchDDD from "../services/search-ddd";
+import { DIGITS_DDD } from "../utils/constantes";
 
 interface PlansProviderProps {
   children: ReactNode;

@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import Button from '../components/Button';
-import ButtonLink from '../components/ButtonLink';
 import { usePlans } from '../hooks/usePlans';
-import styles from './home.module.scss';
-
 import { plans } from '../pages/api/plans';
-
 import { formatPrice } from '../utils/format';
+import styles from './home.module.scss';
+import ButtonLink from '../components/ButtonLink';
+
 
 export default function Home() {
 
