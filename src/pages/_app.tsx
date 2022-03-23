@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import '../../styles/global.scss';
+import '../styles/global.scss';
 import Header from '../components/Header';
 import { PlansProvider } from '../hooks/usePlans';
 import { itemsMenu } from '../utils/constantes';
