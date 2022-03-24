@@ -13,7 +13,7 @@ interface HeaderProps {
 
 export default function Header({ itemsMenu }: HeaderProps) {
   return (
-    <header className={styles.containerHeader}>
+    <header className={styles.containerHeader} data-testid="pure_header">
       <nav className={styles.contenteMenu}>
         <a href="#home">
           <img className={styles.logoImage} src="./images/logo.svg" alt="Logo da VxTel" />

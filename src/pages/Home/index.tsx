@@ -33,23 +33,6 @@ export default function Home() {
     handleSelectMinutesConversation(minutes);
   }
 
-  // const range = document.getElementById('range');
-  // const rangeV = document.getElementById('rangeV');
-  // const setValue = () => {
-  //   const newValue = Number((range.value - range.min) * 100 / (range.max - range.min));
-  //   const newPosition = 10 - (newValue * 0.2);
-  //   rangeV.innerHTML = `<span>${range.value}</span>`;
-  //   rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
-  //   console.log("newValue", newValue);
-  //   console.log("newPosition", newPosition);
-  // };
-  // document.addEventListener("DOMContentLoaded", setValue);
-  // range.addEventListener('input', setValue);
-
-  // console.log("range", range);
-  // console.log("rangeV", rangeV);
-  // console.log("setValue", setValue);
-
   return (
     <>
       <Head>
@@ -66,10 +49,13 @@ export default function Home() {
                 <li>- Surpresas na sua conta</li>
               </ul>
             </section>
+
+            <div className={styles.ctaSimmulate}>
+              <ButtonLink titleButton='Simular contratação' colorButton='yellow' click={'#simulateHiring'} />
+            </div>
           </div>
 
-          {/* <ButtonLink titleButton='Simular contratação' colorButton='yellow' click={'#simulateHiring'} /> */}
-          <Button titleButton='Simular contratação' colorButton='yellow' />
+
         </section>
 
         <section id="simulateHiring" className={styles.containerSection}>
@@ -131,7 +117,15 @@ export default function Home() {
 
               <div className={styles.rangeWrap}>
                 <div className={styles.rangeValue} id={'rangeV'}>{minutes}</div>
-                <input id="range" type="range" min="0" max="500" value="0" step="10" onChange={handleSelectMinutes} />
+                <input
+                  id="range"
+                  type="range"
+                  min="0"
+                  max="500"
+                  value={minutes}
+                  step="10"
+                  className="thumb thumb--zindex-4"
+                  onChange={handleSelectMinutes} />
               </div>
 
             </section>

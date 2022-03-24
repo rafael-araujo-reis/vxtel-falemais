@@ -35,6 +35,16 @@
 
   .containerHome {
     background-image: url('../../../public/images/background.svg');
+
+    .ctaSimmulate {
+      position: absolute;
+      bottom  : 0;
+
+      width          : 100%;
+      display        : flex;
+      justify-content: center;
+      transform      : translateY(-100%)
+    }
   }
 
   .containerSimulateHiring,
@@ -196,22 +206,8 @@
           border-radius: 0.6rem;
 
           &::after {
-            content  : 'min';
+            content  : ' minutos';
             font-size: 1.2rem;
-          }
-
-          &::before {
-            content     : "";
-            position    : absolute;
-            width       : 0;
-            height      : 0;
-            border-top  : 1rem solid var(--green-200);
-            border-left : 0.5rem solid transparent;
-            border-right: 0.5rem solid transparent;
-            top         : 100%;
-            left        : 50%;
-            margin-left : -0.5rem;
-            margin-top  : -0.1rem;
           }
         }
       }
@@ -220,13 +216,13 @@
     .resultSimulate {
       display              : grid;
       grid-template-columns: repeat(2, 1fr);
-      gap                  : 1rem;
+      gap                  : 2rem;
       max-width            : 100rem;
       justify-content      : center;
       margin               : 0 auto;
-      margin-top           : 3rem;
+      margin-top           : 2rem;
 
-      padding: 1rem;
+      padding: 2rem;
 
       div {
         padding      : 2rem;
