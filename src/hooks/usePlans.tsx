@@ -61,7 +61,7 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
           })
           .catch((res: AxiosError) => {
             res.response.status === 404 ? (
-              setHasCoverage({ type: 'info', hasCoverage: false, message: `DDD ${valueDDD} não localizado, por favor tente outro DDD.` })
+              setHasCoverage({ type: 'error', hasCoverage: false, message: `DDD ${valueDDD} não localizado, por favor tente outro DDD.` })
             ) : (
               setHasCoverage({ type: 'error', hasCoverage: false, message: `Algo do nosso lado não saiu como esperado. Por favor, tente novamente.` })
             );
@@ -102,7 +102,12 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
             setPriceMinute(result);
             result !== 0 ?
               setHasCoverage({ hasCoverage: true }) :
-              setHasCoverage({ hasCoverage: false, message: 'No momento não temos planos disponíveis que atenda essas regiões' });
+              setHasCoverage(
+                {
+                  hasCoverage: false,
+                  message: 'No momento não temos planos disponíveis que atenda essas regiões',
+                  type: "info"
+                });
           });
 
       } catch (error) {
