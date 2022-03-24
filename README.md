@@ -39,6 +39,15 @@ Abra o navegador e acesse [http://localhost:3000](http://localhost:3000) para vi
 
 ---
 
+## Testes unitários
+Para executar os testes, rode o comando abaixo no terminal
+
+```bash
+npm run test
+# ou
+yarn test
+```
+
 ## Manutenção no projeto
 
 ## Components
