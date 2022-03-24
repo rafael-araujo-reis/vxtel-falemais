@@ -5,6 +5,6 @@ interface SignButtonProps {
 }
 export default function SignButton({ title }: SignButtonProps) {
   return (
-    <button className={styles.containerSignButton}>{title}</button>
+    <button className={styles.containerSignButton} data-testid='pure_signButton'>{title}</button>
   );
 }
