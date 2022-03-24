@@ -3,12 +3,12 @@ import styles from './styles.module.scss';
 interface ButtonLinkProps {
   titleButton: string;
   colorButton: 'yellow' | 'green';
-  click: 'string';
+  clickAncora: string;
 }
 
 let styleButtonLink: string;
 
-export default function ButtonLink({ titleButton, colorButton, click }: ButtonLinkProps) {
+export default function ButtonLink({ titleButton, colorButton, clickAncora }: ButtonLinkProps) {
 
   switch (colorButton) {
     case 'yellow':
@@ -21,7 +21,7 @@ export default function ButtonLink({ titleButton, colorButton, click }: ButtonLi
 
   return (
     <a
-      href={click}
+      href={clickAncora}
       className={styleButtonLink}
     >
       {titleButton}
