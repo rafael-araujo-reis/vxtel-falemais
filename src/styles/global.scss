@@ -1,15 +1,21 @@
 :root {
   --white-100: #FFFFFF;
+
   --black-900: #000000;
   --black-700: #4b4b4b;
 
+  --yellow-500: #FF9C07;
   --yellow-300: #FFC907;
   --yellow-100: #ffeca7;
-  --gray-200  : #CCCCCC;
-  --green-200 : #00A067;
-  --green-500 : #015235;
 
-  --orange-500: #FF9C07;
+  --gray-200: #CCCCCC;
+
+  --green-500: #015235;
+  --green-200: #00A067;
+
+  --red-500: #9B0900;
+  --red-300: #FF5D53;
+  --red-100: #FFADA8;
 
   --shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.5)
 }
