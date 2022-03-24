@@ -266,25 +266,6 @@
 
     .alertError {
       padding: 2rem;
-
-      .boxAlert {
-        border       : 0.5rem solid var(--yellow-300);
-        border-radius: 1rem;
-
-        background-color: var(--yellow-100);
-        padding         : 2rem;
-
-        display        : flex;
-        justify-content: center;
-        align-items    : center;
-
-        p {
-          margin-left: 1rem;
-
-          font-size: 1.8rem;
-          color    : var(--orange-500);
-        }
-      }
     }
   }
 

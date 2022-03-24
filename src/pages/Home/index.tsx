@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { FaInfoCircle } from 'react-icons/fa';
+import BoxAlert from 'src/components/BoxAlert';
 import Button from '../../components/Button';
 import ButtonLink from '../../components/ButtonLink';
 import { usePlans } from '../../hooks/usePlans';
@@ -156,26 +156,16 @@ export default function Home() {
                 ) :
                 (
                   <section className={styles.alertError}>
-                    <div className={styles.boxAlert}>
-                      <FaInfoCircle color="#FF9C07" fontSize="3rem" />
-                      <p>
-                        {hasCoverage.message}
-                      </p>
-                    </div>
+                    <BoxAlert
+                      message={hasCoverage.message}
+                      hasCoverage={hasCoverage.hasCoverage}
+                      type={hasCoverage.type}
+                    />
                   </section>
                 )
             }
-
           </div>
-
         </section>
-
-        {/* <section id="plans" className={styles.containerSection}>
-          <div className={styles.containerPlans}>
-
-          </div>
-          Planos
-        </section> */}
       </main >
     </>
   );
