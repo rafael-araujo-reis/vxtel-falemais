@@ -1,0 +1,34 @@
+.boxAlertInfo,
+.boxAlertError {
+  border-radius: 1rem;
+
+  padding: 2rem;
+
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+
+  p {
+    margin-left: 1rem;
+
+    font-size: 1.8rem;
+  }
+}
+
+.boxAlertInfo {
+  border          : 0.5rem solid var(--yellow-300);
+  background-color: var(--yellow-100);
+
+  p {
+    color: var(--yellow-500);
+  }
+}
+
+.boxAlertError {
+  border          : 0.5rem solid var(--red-300);
+  background-color: var(--red-100);
+
+  p {
+    color: var(--red-500);
+  }
+}
