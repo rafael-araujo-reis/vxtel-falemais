@@ -1,11 +1,11 @@
-import { FaInfoCircle } from 'react-icons/fa';
 import Head from 'next/head';
+import { FaInfoCircle } from 'react-icons/fa';
 import Button from '../../components/Button';
+import ButtonLink from '../../components/ButtonLink';
 import { usePlans } from '../../hooks/usePlans';
 import { plans } from '../../pages/api/plans';
 import { formatPrice } from '../../utils/format';
 import styles from './styles.module.scss';
-import ButtonLink from '../../components/ButtonLink';
 
 export default function Home() {
 

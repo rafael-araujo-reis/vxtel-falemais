@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
-import '../styles/global.scss';
 import Header from '../components/Header';
 import { PlansProvider } from '../hooks/usePlans';
+import '../styles/global.scss';
 import { itemsMenu } from '../utils/constantes';
 
 function MyApp({ Component, pageProps }: AppProps) {
