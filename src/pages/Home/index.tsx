@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import BoxAlert from 'src/components/BoxAlert';
+import InputRange from 'src/components/InputRange';
 import Button from '../../components/Button';
 import ButtonLink from '../../components/ButtonLink';
 import { usePlans } from '../../hooks/usePlans';
@@ -115,26 +116,16 @@ export default function Home() {
             </section>
 
             <section className={styles.rangeMinutesSection}>
-              <p className={styles.titleRangeMinutes}>Selecione quantos minutos pretende falar:</p>
+              <p className={styles.titleRangeMinutes}>Selecione quantos minutos pretende falar:</p>99
 
-              <div className={styles.rangeWrap}>
-                <div className={styles.rangeValue} id={'rangeV'}>{minutes}</div>
-                <input
-                  id="range"
-                  type="range"
-                  min="0"
-                  max="500"
-                  value={minutes}
-                  step="10"
-                  className="thumb thumb--zindex-4"
-                  onChange={handleSelectMinutes} />
-              </div>
+              <InputRange minutes={minutes} handleSelectMinutes={handleSelectMinutes} />
 
             </section>
             {
               hasCoverage.hasCoverage ?
                 (
                   <section className={styles.resultSimulate}>
+
                     <div style={{ backgroundColor: '#00A067', color: '#FFFFFF' }}>
                       <p>Com plano</p>
                       <h2 className={styles.logoFale}>Fale+</h2>
