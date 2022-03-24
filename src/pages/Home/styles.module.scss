@@ -71,9 +71,9 @@
 
         input {
           width  : 100%;
-          padding: 1rem;
+          padding: 1.5rem;
 
-          border-radius: 0.5rem;
+          border-radius: 1rem;
           border       : 0.1rem solid var(--gray-200);
         }
       }
@@ -112,10 +112,10 @@
           border: 0.1rem solid var(--green-200);
 
           background-color: var(--white-100);
-          border-radius   : 0.5rem;
+          border-radius   : 2rem;
           width           : 16rem;
           height          : 12rem;
-          padding         : 1rem;
+          padding         : 1.5rem;
 
           display        : flex;
           flex-direction : column;
@@ -203,7 +203,7 @@
           position     : absolute;
           left         : 50%;
           transform    : translate(-50%, -50%);
-          border-radius: 0.6rem;
+          border-radius: 1rem;
 
           &::after {
             content  : ' minutos';
@@ -225,10 +225,10 @@
       padding: 2rem;
 
       div {
-        padding      : 2rem;
+        padding      : 3rem;
         width        : 100%;
         border       : 0.1rem solid var(--green-200);
-        border-radius: 0.5rem;
+        border-radius: 2rem;
 
         position: relative;
 
@@ -260,6 +260,29 @@
           width : 20rem;
           bottom: 0;
           margin: 1rem 1rem 1rem auto;
+        }
+      }
+    }
+
+    .alertError {
+      padding: 2rem;
+
+      .boxAlert {
+        border       : 0.5rem solid var(--yellow-300);
+        border-radius: 1rem;
+
+        background-color: var(--yellow-100);
+        padding         : 2rem;
+
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+
+        p {
+          margin-left: 1rem;
+
+          font-size: 1.8rem;
+          color    : var(--orange-500);
         }
       }
     }

@@ -12,6 +12,7 @@ interface PlansContextData {
   minutes: number;
   withPlan: number;
   withoutPlan: number;
+  hasCoverage: boolean;
   handleSearchDDD: (valueDDD: number, id: string) => void;
   handleSelectPlanSimulate: (valuePlan: number) => void;
   handleSelectMinutesConversation: (valueMinutes: number) => void;
@@ -28,6 +29,7 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
   const [withPlan, setWithPlan] = useState(0);
   const [withoutPlan, setWithoutPlan] = useState(0);
   const [priceMinute, setPriceMinute] = useState(0);
+  const [hasCoverage, setHasCoverage] = useState(true);
 
   useEffect(() => {
 
@@ -35,8 +37,6 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
     setDestinationDDD(destinationDDD);
     setPlan(plan);
     setMinutes(minutes);
-
-    searchCallPrice(originDDD, destinationDDD);
 
     const resultWithPlan = calculatePriceWithPlan(priceMinute, plan, minutes);
     const resultWithoutPlan = calculatePriceWithoutPlan(priceMinute, minutes,);
@@ -66,6 +66,11 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
     }
   };
 
+  useEffect(() => {
+    searchCallPrice(originDDD, destinationDDD);
+
+  }, [originDDD, destinationDDD]);
+
   const handleSelectPlanSimulate = (valuePlan: number) => {
     if (valuePlan > 0) {
       setPlan(valuePlan);
@@ -78,22 +83,26 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
 
   async function searchCallPrice(originDDD: number, destinationDDD: number) {
 
-    let priceMinutes = 0;
+    if (originDDD !== 0 && destinationDDD !== 0) {
+      let priceMinutes = 0;
 
-    try {
+      try {
+        console.log('cai aqui');
+        await api.get(`/callprice/originDDD/${originDDD}/destinationDDD/${destinationDDD}`)
+          .then((res) => {
+            const data = res.data.data?.price_minute;
+            const result = data !== undefined ? data / 100 : 0;
 
-      await api.get(`/callprice/originDDD/${originDDD}/destinationDDD/${destinationDDD}`)
-        .then((res) => {
-          const data = res.data.data?.price_minute;
-          const result = data !== undefined ? data / 100 : 0;
-          setPriceMinute(result);
-        });
+            setPriceMinute(result);
+            result !== 0 ? setHasCoverage(true) : setHasCoverage(false);
+          });
 
-    } catch (error) {
-      console.log('error: ', error);
+      } catch (error) {
+        console.log('error: ', error);
+      }
+
+      return priceMinutes;
     }
-
-    return priceMinutes;
   };
 
   function calculatePriceWithPlan(callPriceByMinutes: number, plan: number, minutes: number) {
@@ -109,7 +118,12 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
   }
 
   return <PlansContext.Provider
-    value={{ handleSearchDDD, handleSelectPlanSimulate, handleSelectMinutesConversation, minutes, withPlan, withoutPlan }}
+    value={{
+      handleSearchDDD,
+      handleSelectPlanSimulate,
+      handleSelectMinutesConversation,
+      minutes, withPlan, withoutPlan, hasCoverage
+    }}
   >
     {children}
   </PlansContext.Provider>;

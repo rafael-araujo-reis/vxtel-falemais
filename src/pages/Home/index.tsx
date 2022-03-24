@@ -1,3 +1,4 @@
+import { FaInfoCircle } from 'react-icons/fa';
 import Head from 'next/head';
 import Button from '../../components/Button';
 import { usePlans } from '../../hooks/usePlans';
@@ -14,7 +15,8 @@ export default function Home() {
     handleSelectMinutesConversation,
     minutes,
     withPlan,
-    withoutPlan
+    withoutPlan,
+    hasCoverage
   } = usePlans();
 
   function handleInputSearchDDD(event) {
@@ -129,26 +131,41 @@ export default function Home() {
               </div>
 
             </section>
+            {
+              hasCoverage ?
+                (
+                  <section className={styles.resultSimulate}>
+                    <div style={{ backgroundColor: '#00A067', color: '#FFFFFF' }}>
+                      <p>Com plano</p>
+                      <h2 className={styles.logoFale}>Fale+</h2>
 
-            <section className={styles.resultSimulate}>
-              <div style={{ backgroundColor: '#00A067', color: '#FFFFFF' }}>
-                <p>Com plano</p>
-                <h2 className={styles.logoFale}>Fale+</h2>
+                      <p>Seu plano terá um acréscimo de</p>
+                      <p> {formatPrice(withPlan)} </p>
 
-                <p>Seu plano terá um acréscimo de</p>
-                <p> {formatPrice(withPlan)} </p>
+                      <Button titleButton={'Contratar agora'} colorButton={'yellow'} />
+                    </div>
 
-                <Button titleButton={'Contratar agora'} colorButton={'yellow'} />
-              </div>
+                    <div style={{ backgroundColor: '#FFFFFF', color: '#00A067' }}>
+                      <p>Sem plano</p>
+                      <h2 className={styles.logoFale}>Fale+</h2>
 
-              <div style={{ backgroundColor: '#FFFFFF', color: '#00A067' }}>
-                <p>Sem plano</p>
-                <h2 className={styles.logoFale}>Fale+</h2>
+                      <p>Seu gasto aumentará em</p>
+                      <p> {formatPrice(withoutPlan)} </p>
+                    </div>
+                  </section>
+                ) :
+                (
+                  <section className={styles.alertError}>
+                    <div className={styles.boxAlert}>
+                      <FaInfoCircle color="#FF9C07" fontSize="3rem" />
+                      <p>
+                        No momento não temos planos disponíveis que atenda essas regiões
+                      </p>
+                    </div>
+                  </section>
+                )
+            }
 
-                <p>Seu gasto aumentará em</p>
-                <p> {formatPrice(withoutPlan)} </p>
-              </div>
-            </section>
           </div>
 
         </section>
