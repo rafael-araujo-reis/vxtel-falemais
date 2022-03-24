@@ -67,6 +67,31 @@ O consumo da [Brasil API](https://brasilapi.com.br/docs#tag/DDD) ocorre dentro d
 
 Para que a comunicação funcione é necessário que a aplicação API VxTel esteja instanciada e a Brasil API esteja disponível.
 
+## Cenários de testes
+### **Cenário 1: Região atendida pela VxTel**
+* DDD origem: 11
+* DDD destino: 99
+
+Retornará os cards com os valores com e sem plano da VxTel
+
+---
+
+### **Cenário 2: Região não atendida pela VxTel**
+* DDD origem: 99
+* DDD destino: 11
+
+Retornará uma mensagem informativa dizendo que a região não é atendida pela VxTel
+
+---
+
+### **Cenário 3: DDD 20 não existe no Brasil**
+* DDD origem: 99
+* DDD destino: 20
+
+Retornará uma mensagem de erro informado que o DDD não existe.
+
+---
+
 ## Estilização
 A estilização global do projeto se encontra no arquivo [global.scss](./src//styles/global.scss)
 ```scss
