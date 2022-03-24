@@ -8,11 +8,17 @@ interface PlansProviderProps {
   children: ReactNode;
 }
 
+interface CoverageProps {
+  hasCoverage: boolean;
+  type?: 'info' | 'error';
+  message?: string;
+}
+
 interface PlansContextData {
   minutes: number;
   withPlan: number;
   withoutPlan: number;
-  hasCoverage: boolean;
+  hasCoverage: CoverageProps;
   handleSearchDDD: (valueDDD: number, id: string) => void;
   handleSelectPlanSimulate: (valuePlan: number) => void;
   handleSelectMinutesConversation: (valueMinutes: number) => void;
@@ -29,7 +35,7 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
   const [withPlan, setWithPlan] = useState(0);
   const [withoutPlan, setWithoutPlan] = useState(0);
   const [priceMinute, setPriceMinute] = useState(0);
-  const [hasCoverage, setHasCoverage] = useState(true);
+  const [hasCoverage, setHasCoverage] = useState<CoverageProps>({ hasCoverage: true });
 
   useEffect(() => {
 
@@ -55,9 +61,9 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
           })
           .catch((res: AxiosError) => {
             res.response.status === 404 ? (
-              console.log('DDD não localizado, favor limpar o campo e informar o usuário')
+              setHasCoverage({ type: 'info', hasCoverage: false, message: `DDD ${valueDDD} não localizado, por favor tente outro DDD.` })
             ) : (
-              console.log('Algo do nosso lado não saiu como esperado, tente pesquisar novamente')
+              setHasCoverage({ type: 'error', hasCoverage: false, message: `Algo do nosso lado não saiu como esperado. Por favor, tente novamente.` })
             );
           });
       } catch (error) {
@@ -84,17 +90,19 @@ export function PlansProvider({ children }: PlansProviderProps): JSX.Element {
   async function searchCallPrice(originDDD: number, destinationDDD: number) {
 
     if (originDDD !== 0 && destinationDDD !== 0) {
+
       let priceMinutes = 0;
 
       try {
-        console.log('cai aqui');
         await api.get(`/callprice/originDDD/${originDDD}/destinationDDD/${destinationDDD}`)
           .then((res) => {
             const data = res.data.data?.price_minute;
             const result = data !== undefined ? data / 100 : 0;
 
             setPriceMinute(result);
-            result !== 0 ? setHasCoverage(true) : setHasCoverage(false);
+            result !== 0 ?
+              setHasCoverage({ hasCoverage: true }) :
+              setHasCoverage({ hasCoverage: false, message: 'No momento não temos planos disponíveis que atenda essas regiões' });
           });
 
       } catch (error) {

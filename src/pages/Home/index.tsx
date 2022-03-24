@@ -53,7 +53,7 @@ export default function Home() {
             </section>
 
             <div className={styles.ctaSimmulate}>
-              <ButtonLink titleButton='Simular contratação' colorButton='yellow' click={'#simulateHiring'} />
+              <ButtonLink titleButton='Simular contratação' colorButton='yellow' clickAncora={'#simulateHiring'} />
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function Home() {
 
             </section>
             {
-              hasCoverage ?
+              hasCoverage.hasCoverage ?
                 (
                   <section className={styles.resultSimulate}>
                     <div style={{ backgroundColor: '#00A067', color: '#FFFFFF' }}>
@@ -159,7 +159,7 @@ export default function Home() {
                     <div className={styles.boxAlert}>
                       <FaInfoCircle color="#FF9C07" fontSize="3rem" />
                       <p>
-                        No momento não temos planos disponíveis que atenda essas regiões
+                        {hasCoverage.message}
                       </p>
                     </div>
                   </section>
