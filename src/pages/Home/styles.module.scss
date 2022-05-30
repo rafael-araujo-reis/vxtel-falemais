@@ -75,6 +75,16 @@
 
           border-radius: 1rem;
           border       : 0.1rem solid var(--gray-200);
+
+          &:focus-within {
+            outline: 0.1rem solid var(--green-200);
+
+            color: var(--green-500);
+
+            &::placeholder {
+              color: var(--green-200)
+            }
+          }
         }
       }
     }
